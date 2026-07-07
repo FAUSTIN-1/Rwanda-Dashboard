@@ -15,7 +15,11 @@ def render_header() -> None:
     photo_b64 = image_to_base64(AUTHOR_PHOTO_PATH)
 
     if photo_b64:
-        avatar_html = f'<img src="data:image/jpeg;base64,{photo_b64}" class="dhs-author-avatar-img" />'
+        avatar_html = (
+            f'<div class="dhs-author-avatar-frame">'
+            f'<img src="data:image/jpeg;base64,{photo_b64}" class="dhs-author-avatar-img" />'
+            f'</div>'
+        )
     else:
         # Falls back to initials if the photo file isn't found, so the app never breaks
         avatar_html = '<div class="dhs-author-avatar">FN</div>'
