@@ -1,0 +1,350 @@
+/* =========================================================================
+   Rwanda DHS 2019-20 Dashboard — Custom Enterprise Styling
+   Author: Faustin NIZEYIMANA
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --rw-blue: #00205B;
+    --rw-blue-light: #1D5B9E;
+    --rw-green: #1B9E77;
+    --rw-yellow: #FDB813;
+    --rw-red: #C0392B;
+    --rw-muted: #6B7280;
+    --rw-bg: #F5F7FA;
+    --rw-card: #FFFFFF;
+    --rw-text: #1F2933;
+    --rw-border: #E5E9F0;
+    --shadow-sm: 0 1px 3px rgba(16, 24, 64, 0.06), 0 1px 2px rgba(16, 24, 64, 0.08);
+    --shadow-md: 0 4px 14px rgba(16, 24, 64, 0.08);
+    --shadow-lg: 0 10px 30px rgba(16, 24, 64, 0.12);
+}
+
+/* ---- Global resets ------------------------------------------------------ */
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--rw-text);
+}
+
+.stApp {
+    background: var(--rw-bg);
+}
+
+#MainMenu, header[data-testid="stHeader"], footer {
+    visibility: hidden;
+    height: 0;
+}
+
+.block-container {
+    padding-top: 1rem !important;
+    padding-bottom: 2rem !important;
+    max-width: 1320px;
+}
+
+/* Hide default Streamlit chrome */
+div[data-testid="stDecoration"] { display: none; }
+div[data-testid="stToolbar"] { display: none; }
+
+/* ---- Header -------------------------------------------------------------- */
+.dhs-header {
+    background: linear-gradient(135deg, var(--rw-blue) 0%, #0B3A82 55%, var(--rw-blue-light) 100%);
+    border-radius: 18px;
+    padding: 2.4rem 2.6rem;
+    margin-bottom: 1.6rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.dhs-header::after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(253,184,19,0.18) 0%, rgba(253,184,19,0) 70%);
+}
+
+.dhs-header::before {
+    content: "";
+    position: absolute;
+    bottom: -80px;
+    left: 30%;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(27,158,119,0.15) 0%, rgba(27,158,119,0) 70%);
+}
+
+.dhs-header-eyebrow {
+    color: var(--rw-yellow);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.dhs-header-title {
+    color: #FFFFFF;
+    font-size: 2.35rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 0.35rem 0;
+    letter-spacing: -0.01em;
+}
+
+.dhs-header-subtitle {
+    color: rgba(255,255,255,0.88);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 1.1rem;
+}
+
+.dhs-header-author {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 1rem;
+}
+
+.dhs-author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--rw-yellow);
+    color: var(--rw-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.dhs-author-name {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.98rem;
+    line-height: 1.2;
+}
+
+.dhs-author-role {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+/* ---- KPI Cards ------------------------------------------------------------ */
+.kpi-card {
+    background: var(--rw-card);
+    border-radius: 16px;
+    padding: 1.35rem 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--rw-border);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    height: 100%;
+    position: relative;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0,32,91,0.15);
+}
+
+.kpi-icon {
+    font-size: 1.5rem;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.85rem;
+}
+
+.kpi-value {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--rw-blue);
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+}
+
+.kpi-label {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--rw-text);
+    margin-bottom: 0.15rem;
+}
+
+.kpi-subtitle {
+    font-size: 0.76rem;
+    color: var(--rw-muted);
+    font-weight: 500;
+}
+
+/* ---- Section headers ------------------------------------------------------ */
+.dhs-section-title {
+    font-size: 1.28rem;
+    font-weight: 800;
+    color: var(--rw-blue);
+    margin: 1.6rem 0 0.2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dhs-section-sub {
+    font-size: 0.88rem;
+    color: var(--rw-muted);
+    margin-bottom: 1rem;
+}
+
+.dhs-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--rw-border), transparent);
+    margin: 0.4rem 0 1.1rem 0;
+}
+
+/* ---- Panels / chart containers -------------------------------------------- */
+.dhs-panel {
+    background: var(--rw-card);
+    border-radius: 16px;
+    padding: 1.2rem 1.3rem 0.6rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--rw-border);
+    margin-bottom: 1.1rem;
+}
+
+.dhs-panel-title {
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--rw-text);
+    margin-bottom: 0.15rem;
+}
+
+.dhs-panel-caption {
+    font-size: 0.78rem;
+    color: var(--rw-muted);
+    margin-bottom: 0.6rem;
+}
+
+/* ---- Filter bar ------------------------------------------------------------ */
+.dhs-filter-bar {
+    background: var(--rw-card);
+    border-radius: 14px;
+    padding: 0.9rem 1.2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--rw-border);
+    margin-bottom: 1.2rem;
+}
+
+.dhs-filter-label {
+    font-weight: 700;
+    color: var(--rw-blue);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.3rem;
+}
+
+/* Streamlit widget overrides */
+div[data-baseweb="select"] > div {
+    border-radius: 10px !important;
+    border-color: var(--rw-border) !important;
+}
+
+.stButton > button {
+    border-radius: 10px;
+    font-weight: 600;
+    border: 1px solid var(--rw-border);
+}
+
+.stDownloadButton > button {
+    border-radius: 10px;
+    font-weight: 600;
+    background: var(--rw-blue);
+    color: white;
+    border: none;
+}
+
+.stDownloadButton > button:hover {
+    background: var(--rw-blue-light);
+    color: white;
+}
+
+.stTabs [data-baseweb="tab-list"] {
+    gap: 6px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 10px 10px 0 0;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+}
+
+/* Dataframe */
+[data-testid="stDataFrame"] {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--rw-border);
+}
+
+/* ---- Footer ---------------------------------------------------------------- */
+.dhs-footer {
+    background: var(--rw-blue);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    margin-top: 2rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.dhs-footer-stats {
+    display: flex;
+    gap: 2.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.dhs-footer-stat-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--rw-yellow);
+}
+
+.dhs-footer-stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+}
+
+.dhs-footer-desc {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.55;
+    max-width: 900px;
+    margin-bottom: 0.8rem;
+}
+
+.dhs-footer-source {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #C7CFDB; border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dhs-header-title { font-size: 1.6rem; }
+    .dhs-footer-stats { gap: 1.2rem; }
+}
