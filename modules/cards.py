@@ -3,18 +3,14 @@ cards.py
 --------
 Renders the five headline KPI cards: Family Planning, Child Nutrition,
 HIV Tested, Health Insurance, and Fertility.
-
 Author: Faustin NIZEYIMANA
 """
-
 import streamlit as st
-
 from modules.helpers import fmt_pct, fmt_number
-
 CARD_SPECS = [
     {
         "key": "family_planning",
-        "icon": "💊",
+        "icon": "🗓️",
         "color": "#00205B",
         "bg": "rgba(0,32,91,0.08)",
         "label": "Family Planning",
@@ -23,7 +19,7 @@ CARD_SPECS = [
     },
     {
         "key": "child_nutrition",
-        "icon": "🍼",
+        "icon": "⚖️",
         "color": "#C0392B",
         "bg": "rgba(192,57,43,0.08)",
         "label": "Child Nutrition",
@@ -32,7 +28,7 @@ CARD_SPECS = [
     },
     {
         "key": "hiv_tested",
-        "icon": "🩸",
+        "icon": "🧪",
         "color": "#1B9E77",
         "bg": "rgba(27,158,119,0.08)",
         "label": "HIV Tested",
@@ -41,7 +37,7 @@ CARD_SPECS = [
     },
     {
         "key": "health_insurance",
-        "icon": "🏥",
+        "icon": "🛡️",
         "color": "#2E86C1",
         "bg": "rgba(46,134,193,0.08)",
         "label": "Health Insurance",
@@ -50,7 +46,7 @@ CARD_SPECS = [
     },
     {
         "key": "fertility",
-        "icon": "👶",
+        "icon": "👨‍👩‍👧",
         "color": "#FDB813",
         "bg": "rgba(253,184,19,0.14)",
         "label": "Fertility",
@@ -58,8 +54,6 @@ CARD_SPECS = [
         "is_pct": False,
     },
 ]
-
-
 def render_kpi_cards(kpis: dict) -> None:
     cols = st.columns(5)
     for col, spec in zip(cols, CARD_SPECS):
