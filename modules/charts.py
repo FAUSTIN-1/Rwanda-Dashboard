@@ -29,7 +29,11 @@ PLOT_LAYOUT = dict(
     plot_bgcolor="rgba(0,0,0,0)",
     font=PLOTLY_FONT,
     margin=dict(l=10, r=10, t=30, b=10),
-    hoverlabel=dict(bgcolor="white", font_size=12, font_family="Inter"),
+    hoverlabel=dict(
+        bgcolor="white",
+        font=dict(color=COLORS["text"], size=12, family="Inter"),
+        bordercolor=COLORS["muted"],
+    ),
 )
 
 
